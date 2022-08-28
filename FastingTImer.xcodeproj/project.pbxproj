@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		482871E428BB1A3B00CB81B0 /* FastingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482871E328BB1A3B00CB81B0 /* FastingManager.swift */; };
 		48715A5928BB0628004A1A74 /* FastingTImerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48715A5828BB0628004A1A74 /* FastingTImerApp.swift */; };
 		48715A5B28BB0628004A1A74 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48715A5A28BB0628004A1A74 /* ContentView.swift */; };
 		48715A5D28BB062A004A1A74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48715A5C28BB062A004A1A74 /* Assets.xcassets */; };
 		48715A6028BB062A004A1A74 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48715A5F28BB062A004A1A74 /* Preview Assets.xcassets */; };
+		48715A6728BB0769004A1A74 /* ProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48715A6628BB0769004A1A74 /* ProgressRing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		482871E328BB1A3B00CB81B0 /* FastingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingManager.swift; sourceTree = "<group>"; };
 		48715A5528BB0628004A1A74 /* FastingTImer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastingTImer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48715A5828BB0628004A1A74 /* FastingTImerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingTImerApp.swift; sourceTree = "<group>"; };
 		48715A5A28BB0628004A1A74 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		48715A5C28BB062A004A1A74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48715A5F28BB062A004A1A74 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		48715A6628BB0769004A1A74 /* ProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				48715A5828BB0628004A1A74 /* FastingTImerApp.swift */,
 				48715A5A28BB0628004A1A74 /* ContentView.swift */,
+				48715A6628BB0769004A1A74 /* ProgressRing.swift */,
+				482871E328BB1A3B00CB81B0 /* FastingManager.swift */,
 				48715A5C28BB062A004A1A74 /* Assets.xcassets */,
 				48715A5E28BB062A004A1A74 /* Preview Content */,
 			);
@@ -139,6 +145,8 @@
 			files = (
 				48715A5B28BB0628004A1A74 /* ContentView.swift in Sources */,
 				48715A5928BB0628004A1A74 /* FastingTImerApp.swift in Sources */,
+				482871E428BB1A3B00CB81B0 /* FastingManager.swift in Sources */,
+				48715A6728BB0769004A1A74 /* ProgressRing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
