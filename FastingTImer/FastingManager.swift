@@ -108,5 +108,14 @@ class FastingManger: ObservableObject{
         print("progress", progress)
         
     }
-    
+    func change(plan: FastingPlan) {
+        switch plan {
+        case .beginner:
+            fastingPlan = .intermediate
+        case .intermediate:
+            fastingPlan = .advance
+        case .advance:
+            fastingPlan = .beginner
+        }
+    }
 }
