@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var fastingManager = FastingManger()
-     
+    @State private var showingAlert = false
+    
     var title: String{
         switch fastingManager.fastingState{
             
@@ -57,7 +58,7 @@ struct ContentView: View {
                         .background(.thinMaterial)
                         .cornerRadius(20)
                 }
-                .disabled(fastingManager.fastingState == .fasting)
+//                .disabled(fastingManager.fastingState == .fasting)
                 Spacer()
             }
             .padding()
@@ -91,8 +92,16 @@ struct ContentView: View {
                 
                 //MARK: Button
                 Button {
-                    fastingManager.toggleFastingState()
+                    switch fastingManager.fastingState{
+                    case .notStarted:
+                        fastingManager.toggleFastingState()
+                    case .fasting:
+                        showingAlert = true
+                    case .feeding:
+                        fastingManager.toggleFastingState()
+                    }
                     print(fastingManager.fastingState)
+                    
                 } label: {
                     Text(fastingManager.fastingState == .fasting ? "End fast": "Start fasting")
                         .font(.title3)
@@ -101,6 +110,12 @@ struct ContentView: View {
                         .padding(.vertical, 8)
                         .background(.thinMaterial)
                         .cornerRadius(20)
+                }
+                .alert("Are you sure you want to stop fasting ?", isPresented: $showingAlert) {
+                    Button("Confirm") {
+                        fastingManager.toggleFastingState()
+                    }
+                    Button("Cancel", role: .cancel) { }
                 }
                 
             }
