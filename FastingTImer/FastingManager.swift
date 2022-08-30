@@ -6,6 +6,14 @@
 // we did it!
  
 import Foundation
+import SwiftUI
+
+enum ChoosenIs: String{
+    case purple = "Purple"
+    case pink = "Pink"
+    case pastel = "Pastel"
+    case peach = "Peach"
+}
 
 enum FastingState{
     case notStarted
@@ -116,6 +124,22 @@ class FastingManger: ObservableObject{
             fastingPlan = .advance
         case .advance:
             fastingPlan = .beginner
+        }
+        fastingState = .notStarted
+        
+    }
+}
+
+//change BG color
+extension FastingState {
+    var backgroundColor: String {
+        switch (self) {
+        case .notStarted:
+            return ChoosenIs.purple.rawValue
+        case .fasting:
+            return ChoosenIs.peach.rawValue
+        case .feeding:
+            return ChoosenIs.pink.rawValue
         }
     }
 }

@@ -14,11 +14,11 @@ struct ContentView: View {
         switch fastingManager.fastingState{
             
         case .notStarted:
-            return "Let's get started"
+            return "Let's fast"
         case .fasting:
             return "You are now fasting"
         case .feeding:
-            return "You are now feeding"
+            return "You can now eat"
         }
     }
     
@@ -26,7 +26,7 @@ struct ContentView: View {
         ZStack{
             //MARK: Background
             
-            Color(#colorLiteral(red: 0.1565414071, green: 0, blue: 0.0863205269, alpha: 1))
+            Color(fastingManager.fastingState.backgroundColor.self)
                 .ignoresSafeArea()
             
             content
@@ -40,7 +40,8 @@ struct ContentView: View {
                 
                 Text(title)
                     .font(.headline)
-                    .foregroundColor(Color(#colorLiteral(red: 0.7669664621, green: 0, blue: 0.4258552194, alpha: 1)))
+                    .foregroundColor(Color(ChoosenIs.pastel.rawValue))
+                
                 
                 //MARK: Fasting Plan
                 
@@ -56,6 +57,7 @@ struct ContentView: View {
                         .background(.thinMaterial)
                         .cornerRadius(20)
                 }
+                .disabled(fastingManager.fastingState == .fasting)
                 Spacer()
             }
             .padding()
@@ -69,7 +71,7 @@ struct ContentView: View {
                     //MARK: Start Time
                     
                     VStack(spacing: 5){
-                        Text(fastingManager.fastingState == .notStarted ? "Start" : "Started")
+                        Text(fastingManager.fastingState == .notStarted ? "Start" : "From")
                             .opacity(0.7)
                         Text(fastingManager.startTime, format: .dateTime.weekday().hour().minute())
                             .fontWeight(.bold )
@@ -78,16 +80,19 @@ struct ContentView: View {
                     //MARK: End Time
                     
                     VStack(spacing: 5){
-                        Text(fastingManager.fastingState == .notStarted ? "End" : "Ended")
+                        Text(fastingManager.fastingState == .notStarted ? "End" : "To")
                             .opacity(0.7)
                         Text(fastingManager.endTime, format: .dateTime.weekday().hour().minute())
                             .fontWeight(.bold )
                     }
                 }
+                .opacity(fastingManager.fastingState == .fasting ? 1 : 0)
+
                 
                 //MARK: Button
                 Button {
                     fastingManager.toggleFastingState()
+                    print(fastingManager.fastingState)
                 } label: {
                     Text(fastingManager.fastingState == .fasting ? "End fast": "Start fasting")
                         .font(.title3)
